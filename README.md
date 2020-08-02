@@ -8,19 +8,19 @@ The service is a part of Docker demo - see [bus-app](https://github.com/uudisaru
 - Install dependencies
 
     ```bash
-    $ yarn
+    $ npm install
     ```
 
 - Launch the dev mode
 
     ```bash
-    $ yarn dev
+    $ npm run dev
     ```
 
 - Build
 
     ```bash
-    $ yarn build
+    $ npm run build
     ```
 
 - Build Docker image with static app in Nginx
@@ -35,12 +35,15 @@ The service is a part of Docker demo - see [bus-app](https://github.com/uudisaru
 Install `surge` if you haven't already:
 
 ```bash
-yarn global add surge
+npm install -g surge
 ```
 
 Then, from within your project folder:
 
 ```bash
-API_URL=... yarn run build
+API_URL=... npm run build
 surge public bus-ui.surge.sh
+
+# Tear down
+surge teardown bus-ui.surge.sh
 ```

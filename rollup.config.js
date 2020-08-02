@@ -45,17 +45,17 @@ export default {
   },
   plugins: [
     css({ output: "public/build/extra.css" }),
-    production &&
-      replace({
-        "http://localhost:8095": process.env.API_URL || "http://localhost:8095",
+		replace({
+			__API_URL__: process.env.API_URL || "http://localhost:8095",
+			include: "*/conf.ts",
 
-        // 2 level deep object should be stringify
-        process: JSON.stringify({
-          env: {
-            isProd: production,
-          },
-        }),
-      }),
+			// 2 level deep object should be stringify
+			process: JSON.stringify({
+				env: {
+					isProd: production,
+				},
+			}),
+		}),
 
     svelte({
       // enable run-time checks when not in production
