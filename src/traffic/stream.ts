@@ -59,9 +59,6 @@ export class LocationStream {
   private setupEventSource() {
     const source = new EventSource(this.url);
     source.onmessage = this.onEvent;
-    //source.addEventListener(TYPE_POSITION_CAR, this.onEvent);
-    //source.addEventListener(TYPE_POSITION_TERMINAL, this.onEvent);
-    //source.addEventListener(TYPE_EXPIRY, this.onEvent);
     source.onopen = (e) => {
       // Reset reconnect frequency upon successful connection
       this.retryInterval = 1;
