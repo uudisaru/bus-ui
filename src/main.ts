@@ -1,10 +1,11 @@
 import App from "./App.svelte";
 import { LocationStream } from "./traffic/stream";
 import { LocationStore, Location } from "./traffic/store";
+import { API_BUS_LOCATIONS } from "./settings";
 
 const store = new LocationStore();
-const stream = new LocationStream(
-  "http://localhost:8095/api/locations",
+export const stream = new LocationStream(
+  API_BUS_LOCATIONS,
   (ev: MessageEvent) => {
     const location: Location = JSON.parse(ev.data);
     store.update(location);
